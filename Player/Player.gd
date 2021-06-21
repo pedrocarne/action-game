@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 const ACCELERATION = 400
 const MAX_SPEED = 100
+const FRICTION = 400
+
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
@@ -13,7 +15,7 @@ func _physics_process(delta):
 	if input_vector != Vector2.ZERO:
 		velocity += input_vector * ACCELERATION * delta#makes the character move with acceleration frame based
 	else:
-		velocity = Vector2.ZERO
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)#adding friction and making it frame based
 	
 	#print(velocity) 
 	move_and_collide(velocity * delta)
