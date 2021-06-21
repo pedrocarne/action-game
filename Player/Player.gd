@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const MAX_SPEED = 400
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
@@ -12,5 +13,5 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 	
-	print(velocity) 
-	move_and_collide(velocity)
+	#print(velocity) 
+	move_and_collide(velocity * delta * MAX_SPEED)
