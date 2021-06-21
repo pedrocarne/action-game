@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const ACCELERATION = 400
 const MAX_SPEED = 100
 var velocity = Vector2.ZERO
 
@@ -10,9 +11,9 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()#makes the character runs at the same speed in all directions	
 	
 	if input_vector != Vector2.ZERO:
-		velocity = input_vector 
+		velocity += input_vector * ACCELERATION * delta#makes the character move with acceleration frame based
 	else:
 		velocity = Vector2.ZERO
 	
 	#print(velocity) 
-	move_and_collide(velocity * delta * MAX_SPEED)
+	move_and_collide(velocity * delta)
