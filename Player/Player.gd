@@ -20,4 +20,4 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)#adding friction and making it frame based
 	
 	print(velocity) 
-	move_and_slide(velocity)
+	velocity = move_and_slide(velocity)
