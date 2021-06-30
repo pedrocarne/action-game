@@ -15,10 +15,15 @@ func _physics_process(delta):
 	
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		if input_vector.x > 0: 
+			animationPlayer.play("RunRight")
+		else:
+			animationPlayer.play("RunLeft")
 		#velocity += input_vector * ACCELERATION * delta#makes the character move with acceleration frame based
 		#velocity = velocity.clamped(MAX_SPEED) * delta#clamping the velocity by max speed and making it frame based
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)#adding friction and making it frame based
+		animationPlayer.play("IdleRight")
 	
 	print(velocity) 
 	velocity = move_and_slide(velocity)
