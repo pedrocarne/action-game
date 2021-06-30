@@ -5,6 +5,7 @@ const MAX_SPEED = 100
 const FRICTION = 500
 
 var velocity = Vector2.ZERO
+onready var animationPlayer = $Animations #Turn the animations into a variable inside the _ready funcion
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
