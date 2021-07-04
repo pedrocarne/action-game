@@ -9,6 +9,9 @@ onready var animationPlayer = $AnimationPlayer #Turn the animations into a varia
 onready var animationTree = $AnimationTree #Turn the animations Tree into a variable
 onready var animationState = animationTree.get("parameters/playback")
 
+func _ready():
+	animationTree.active = true
+
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")#gets the datas of right and left arrow keys
