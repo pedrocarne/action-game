@@ -39,6 +39,7 @@ func move_state(delta):
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
+		animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Run")
 		#velocity += input_vector * ACCELERATION * delta#makes the character move with acceleration frame based
 		#velocity = velocity.clamped(MAX_SPEED) * delta#clamping the velocity by max speed and making it frame based
@@ -48,6 +49,15 @@ func move_state(delta):
 	
 	print(velocity) 
 	velocity = move_and_slide(velocity)
+	
+	if Input.is_action_just_pressed("attack"):
+		state = ATTACK
+	else:
+		state = MOVE
 
 func attack_state(delta):
-	pass
+	velocity = 0
+	animationState.travel("Attack")
+	
+func attack_animation_finished():
+	state = MOVE
