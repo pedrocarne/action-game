@@ -7,6 +7,7 @@ const FRICTION = 500
 var velocity = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer #Turn the animations into a variable inside the _ready funcion
 onready var animationTree = $AnimationTree #Turn the animations Tree into a variable
+onready var animationState = animationTree.get("parameters/playback")
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -18,9 +19,11 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
+		animationState.travel("Run")
 		#velocity += input_vector * ACCELERATION * delta#makes the character move with acceleration frame based
 		#velocity = velocity.clamped(MAX_SPEED) * delta#clamping the velocity by max speed and making it frame based
 	else:
+		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)#adding friction and making it frame based
 	
 	print(velocity) 
