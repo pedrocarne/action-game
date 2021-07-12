@@ -56,7 +56,7 @@ func move_state(delta):
 		state = MOVE
 
 func attack_state(delta):
-	velocity = 0
+	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 	
 func attack_animation_finished():
