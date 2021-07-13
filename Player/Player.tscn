@@ -445,6 +445,7 @@ start_node = "Idle"
 height = 12.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
