@@ -49,6 +49,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ 90.0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwHitbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "AttackLeft"
@@ -90,6 +102,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 180.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwHitbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -133,6 +157,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwHitbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "AttackUp"
@@ -174,6 +210,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 270.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HitboxPivot/SwHitbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -406,7 +454,7 @@ __meta__ = {
 position = Vector2( 0, -8 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 28
+frame = 39
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -436,7 +484,7 @@ parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
-rotation = 4.71239
+rotation = 1.5708
 
 [node name="SwHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
 position = Vector2( 0, 4 )
@@ -444,3 +492,4 @@ position = Vector2( 0, 4 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitboxPivot/SwHitbox"]
 position = Vector2( 15, 0 )
 shape = SubResource( 35 )
+disabled = true
