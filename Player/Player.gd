@@ -25,7 +25,7 @@ func _physics_process(delta):
 		MOVE:
 			move_state(delta)
 		ROLL:
-			pass
+			roll_state(delta)
 		ATTACK:
 			attack_state(delta)
 	
@@ -40,6 +40,7 @@ func move_state(delta):
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
+		animationTree.set("parameters/Roll/blend_position", input_vector)
 		animationState.travel("Run")
 		#velocity += input_vector * ACCELERATION * delta#makes the character move with acceleration frame based
 		#velocity = velocity.clamped(MAX_SPEED) * delta#clamping the velocity by max speed and making it frame based
@@ -52,12 +53,16 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
-	else:
-		state = MOVE
+	if Input.is_action_just_pressed("rool"):
+		state = ROLL
 
 func attack_state(delta):
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
+	
+func roll_state(delta):
+	velocity = Vector2.ZERO
+	animationState.travel("Roll")
 	
 func roll_animation_finished():
 	state = MOVE
