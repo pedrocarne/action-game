@@ -13,7 +13,7 @@ enum{#its like an array
 
 var velocity = Vector2.ZERO
 var state =  MOVE
-var roll_vector = Vector2.LEFT
+var roll_vector = Vector2.DOWN
 
 onready var animationPlayer = $AnimationPlayer #Turn the animations into a variable inside the _ready funcion
 onready var animationTree = $AnimationTree #Turn the animations Tree into a variable
