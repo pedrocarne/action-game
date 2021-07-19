@@ -14,6 +14,7 @@ enum{#its like an array
 var velocity = Vector2.ZERO
 var state =  MOVE
 var roll_vector = Vector2.DOWN
+var stats = PlayerStats #gets the Player stats scene which is in the autoload ps
 
 onready var animationPlayer = $AnimationPlayer #Turn the animations into a variable inside the _ready funcion
 onready var animationTree = $AnimationTree #Turn the animations Tree into a variable
@@ -21,6 +22,7 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var swordHitbox = $HitboxPivot/SwHitbox
 
 func _ready():
+	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 
@@ -81,3 +83,7 @@ func roll_animation_finished():
 func attack_animation_finished():
 	state = MOVE
 	
+
+
+func _on_Hurtbox_area_entered(area):
+	stats.health -= 1
