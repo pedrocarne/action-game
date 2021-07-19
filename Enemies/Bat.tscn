@@ -56,7 +56,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 4
+frame = 1
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -68,6 +68,7 @@ shape = SubResource( 7 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 scale = Vector2( 1, 1.19647 )
+collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -10 )
