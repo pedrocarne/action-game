@@ -19,6 +19,7 @@ var state = IDLE
 onready var sprite = $Sprite
 onready var stats = $Stats #takes the Stats Scene to a variable
 onready var playerDetectionZone = $PlayerDetectionZone
+onready var hurtbox = $Hurtbox
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -48,6 +49,7 @@ func _on_Hurtbox_area_entered(area):
 	stats.health -= area.damage
 	print(stats.health);
 	knockback = area.knockback_vector * 110
+	hurtbox.create_hit_effect()
 	
 func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
