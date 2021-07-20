@@ -51,7 +51,6 @@ radius = 4.5531
 
 [node name="Bat" type="KinematicBody2D"]
 collision_layer = 16
-collision_mask = 17
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -60,7 +59,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 3
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 
