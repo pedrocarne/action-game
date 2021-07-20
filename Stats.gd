@@ -7,6 +7,12 @@ onready var health = max_health setget set_health #set this func every time the 
 
 signal no_health
 signal health_changed(value)
+signal max_health_changed(value)
+
+func set_max_health(value):
+	max_health = value
+	self.health = min(health, max_health)
+	emit_signal("max_health_changed", health)
 
 func set_health(value):
 	health = value
