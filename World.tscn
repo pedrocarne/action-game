@@ -571,4 +571,7 @@ position = Vector2( 136, 8 )
 [node name="Tree4" parent="YSort/Trees" instance=ExtResource( 9 )]
 position = Vector2( 56, 0 )
 
+[node name="Tree5" parent="YSort/Trees" instance=ExtResource( 9 )]
+position = Vector2( 128, 144 )
+
 [node name="HealthUI" parent="." instance=ExtResource( 8 )]
