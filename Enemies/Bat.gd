@@ -32,6 +32,7 @@ func _physics_process(delta):
 			seek_player()
 		WANDER:
 			pass
+			
 		CHASE:
 			var player = playerDetectionZone.player
 			if player != null:
